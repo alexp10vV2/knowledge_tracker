@@ -1,0 +1,21 @@
+{% extends 'learning_logs/base.xhtml' %}
+
+{% block page_header %}
+<h1>Topics</h1>
+{% endblock page_header %}
+
+{% block content %}
+
+  <ul class="list-group border-bottom pb-2 mb-4">
+    {% for topic in topics %}
+      <li class="lost-group-item border-0">
+        <a href="{% url 'learning_logs:topic' topic.id %}" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">{{topic.text}}</a>
+      </li>
+    {% empty %}
+     <li class="lost-group-item border-0">No topics have been added yet.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'learning_logs:new_topic' %}" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Click here to add a new topic</a>
+  
+{% endblock content %}
+  
